@@ -31,11 +31,10 @@ namespace NamTranLab1
             var configuration = app.Services.GetService<IConfiguration>();
             var hosting = app.Services.GetService<IWebHostEnvironment>();
 
-            if (hosting.IsDevelopment())
-            {
+
                 var secrets = configuration.GetSection("Secrets").Get<AppSecrets>();
                 DbInitializer.appSecrets = secrets;
-            }
+
 
             using (var scope = app.Services.CreateScope())
             {
